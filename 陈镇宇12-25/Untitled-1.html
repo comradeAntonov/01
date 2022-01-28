@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jQuery.js"></script>
+</head>
+<link rel="stylesheet" href="./Untitled-1.css">
+<body>
+    <div class="main">
+        <h3>只会做用点箭头来触发</h3>
+    <div class="box1">
+        <div class="box2">
+            <div class="arrow"> <button> < </button> </div>
+        </div>
+        <div class="box3">
+            <div class="contents">
+                <div class="content1">
+                    <div id="pic1">
+                        <img src="https://lf3-cdn-tos.bytescm.com/obj/eden-cn/lmeh7pfuho/campus/xiongdian.jpg" style="width: 100%;height: 100%;">
+                    </div>
+                    <div class="text">
+                        <div id="title1"></div>
+                        <div id="file1"></div>
+                        <div class="name1">
+                            <div id="avaitar1"><img src=""></div>
+                            <div id="name1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content1">
+                    <div id="pic2">
+                        <img src="https://lf3-cdn-tos.bytescm.com/obj/eden-cn/lmeh7pfuho/campus/leoxu.jpg" style="width: 100%;height: 100%;">
+                    </div>
+                    <div class="text">
+                        <div id="title2"></div>
+                        <div id="file2"></div>
+                        <div class="name2">
+                            <div id="avaitar2"><img src=""></div>
+                            <div id="name2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content1">
+                    <div id="pic3">
+                        <img src="http://101.43.53.16:8080/images/people2.jpg" style="width: 100%;height: 100%;">
+                    </div>
+                    <div class="text">
+                        <div id="title3"></div>
+                        <div id="file3"></div>
+                        <div class="name3">
+                            <div id="avaitar3"><img src=""></div>
+                            <div id="name3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content1">
+                    <div id="pic4">
+                        <img src="http://101.43.53.16:8080/images/people4.jpg" style="width: 100%;height: 100%;">
+                    </div>
+                    <div class="text">
+                        <div id="title4"></div>
+                        <div id="file4"></div>
+                        <div class="name4">
+                            <div id="avaitar4"><img src=""></div>
+                            <div id="name4"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            <div class="box4">
+                <div class="arrow"> <button> > </button> </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        var btn = document.getElementsByTagName("button")
+        var swiper = document.querySelector(".contents")
+        var swiper_item = document.getElementsByClassName("content1")
+        var i = 0
+        // console.log(btn)
+        $('button').eq(0).click(function(){
+            $.get("http://101.43.53.16:8080/text",function(rec){
+                // console.log(rec.persionList[0].text1);
+                console.log(rec.persionList[0].imgPath);
+                $("#pic1").html('<img src = "rec.persionList[0].imgPath" alt = "控制台可以打印出图像，这里却显示找不到数据，不知道怎么回事">');
+                $("#pic2").html('<img src = "rec.persionList[1].imgPath" alt = "控制台可以打印出图像，这里却显示找不到数据，不知道怎么回事">');
+                $("#pic3").html('<img src = "rec.persionList[2].imgPath" alt = "控制台可以打印出图像，这里却显示找不到数据，不知道怎么回事">');
+                $("#pic4").html('<img src = "rec.persionList[3].imgPath" alt = "控制台可以打印出图像，这里却显示找不到数据，不知道怎么回事">');
+                $("#title1").html(rec.persionList[0].text1);
+                $("#file1").html(rec.persionList[0].text2);
+                $("#title2").html(rec.persionList[1].text1);
+                $("#file2").html(rec.persionList[1].text2);
+                $("#title3").html(rec.persionList[2].text1);
+                $("#file3").html(rec.persionList[2].text2);
+                $("#title4").html(rec.persionList[3].text1);
+                $("#file4").html(rec.persionList[3].text2);
+                console.log(rec.persionList[0].headImg);
+                $("#avaitar1").html('<img src = "rec.persionList[0].headImg" alt = "同上面的原因&nbsp&nbsp&nbsp">');
+                $("#avaitar2").html('<img src = "rec.persionList[1].headImg" alt = "同上面的原因&nbsp&nbsp&nbsp">');
+                $("#avaitar3").html('<img src = "rec.persionList[2].headImg" alt = "同上面的原因&nbsp&nbsp&nbsp">');
+                $("#avaitar4").html('<img src = "rec.persionList[3].headImg" alt = "同上面的原因&nbsp&nbsp&nbsp">');
+                $("#name1").html(rec.persionList[0].name);
+                $("#name2").html(rec.persionList[1].name);
+                $("#name3").html(rec.persionList[2].name);
+                $("#name4").html(rec.persionList[3].name);
+            })
+        })
+        $('button').eq(1).click(function(){
+            $.get("http://101.43.53.16:8080/text",function(rec){
+                // console.log(rec.persionList[0].text1);
+                console.log(rec.persionList[0].imgPath);
+                $("#pic1").html('<img src = "rec.persionList[0].imgPath" alt = "控制台可以打印出图像，这里却显示找不到数据，不知道怎么回事">');
+                $("#pic2").html('<img src = "rec.persionList[1].imgPath" alt = "控制台可以打印出图像，这里却显示找不到数据，不知道怎么回事">');
+                $("#pic3").html('<img src = "rec.persionList[2].imgPath" alt = "控制台可以打印出图像，这里却显示找不到数据，不知道怎么回事">');
+                $("#pic4").html('<img src = "rec.persionList[3].imgPath" alt = "控制台可以打印出图像，这里却显示找不到数据，不知道怎么回事">');
+                $("#title1").html(rec.persionList[0].text1);
+                $("#file1").html(rec.persionList[0].text2);
+                $("#title2").html(rec.persionList[1].text1);
+                $("#file2").html(rec.persionList[1].text2);
+                $("#title3").html(rec.persionList[2].text1);
+                $("#file3").html(rec.persionList[2].text2);
+                $("#title4").html(rec.persionList[3].text1);
+                $("#file4").html(rec.persionList[3].text2);
+                console.log(rec.persionList[0].headImg);
+                $("#avaitar1").html('<img src = "rec.persionList[0].headImg" alt = "同上面的原因&nbsp&nbsp&nbsp">');
+                $("#avaitar2").html('<img src = "rec.persionList[1].headImg" alt = "同上面的原因&nbsp&nbsp&nbsp">');
+                $("#avaitar3").html('<img src = "rec.persionList[2].headImg" alt = "同上面的原因&nbsp&nbsp&nbsp">');
+                $("#avaitar4").html('<img src = "rec.persionList[3].headImg" alt = "同上面的原因&nbsp&nbsp&nbsp">');
+                $("#name1").html(rec.persionList[0].name);
+                $("#name2").html(rec.persionList[1].name);
+                $("#name3").html(rec.persionList[2].name);
+                $("#name4").html(rec.persionList[3].name);
+                
+            })
+        })
+        btn[0].onclick = function(){
+            console.log(swiper.style.left)
+            if(i == 0){
+                i -= 3;
+                swiper.style.left = i*395.203 + 'px';
+            }else if(i >= -3 && i<swiper_item.length){
+                i++;
+                swiper.style.left = i*395.203 + 'px';
+            }
+        }
+        btn[1].onclick = function(){
+            console.log(swiper.style.left)
+            if(i < swiper_item.length && i > -3){
+                i--;
+                console.log(i);
+                swiper.style.left = i*395.203 + 'px';
+            }else{
+                i = 0;
+                swiper.style.left = 0;
+            }
+        }
+    </script>
+</body>
+</html>
