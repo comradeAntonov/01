@@ -86,7 +86,7 @@
         var i = 0
         // console.log(btn)
         $('button').eq(0).click(function(){
-            $.get("https://101.43.53.16:8080/text",function(rec){
+            $.get("http://101.43.53.16:8080/text",function(rec){
                 // console.log(rec.persionList[0].text1);
                 console.log(rec.persionList[0].imgPath);
                 $("#pic1").html('<img src = "rec.persionList[0].imgPath" alt = "控制台可以打印出图像，这里却显示找不到数据，不知道怎么回事">');
@@ -113,7 +113,7 @@
             })
         })
         $('button').eq(1).click(function(){
-            $.get("https://101.43.53.16:8080/text",function(rec){
+            $.get("http://101.43.53.16:8080/text",function(rec){
                 // console.log(rec.persionList[0].text1);
                 console.log(rec.persionList[0].imgPath);
                 $("#pic1").html('<img src = "rec.persionList[0].imgPath" alt = "控制台可以打印出图像，这里却显示找不到数据，不知道怎么回事">');
