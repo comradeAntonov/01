@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./注册登录.css" rel="stylesheet">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="frame">
+            <div class="title2">
+                <div class="titleleft">
+                    <div class="div1">
+                        欢迎注册
+                    </div>
+                    <div class="div2">
+                        已有账号?<a href="./登录.html">登录</a>
+                    </div>
+                </div>
+                <div class="titlecenter">
+                    2022新年愿望墙 欢迎您
+                </div>
+            </div>
+            <div class="content">
+                <div class="beforeinput">
+                    昵称
+                </div>
+                <div class="input">
+                    <input id="nickname">
+                </div>
+            </div>
+            <div class="content">
+                <div class="beforeinput">
+                    手机号
+                </div>
+                <div class="input">
+                    <input id="num">
+                </div>
+            </div>
+            <div class="content">
+                <div class="beforeinput">
+                    密码
+                </div>
+                <div class="input">
+                    <input id="code">
+                </div>
+            </div>
+        <div class="login">
+            <button>注册</button>
+        </div>
+            </div>
+        </div>
+     </div>
+     <script>
+        var btn = document.getElementsByTagName("button");
+        var nickname = document.getElementById("nickname");
+        var num = document.getElementById("num");
+        var code = document.getElementById("code");
+        $('button').click(function(){
+            $.ajax({
+                type:'POST',
+                url:'http://127.0.0.1/zhuce',
+                crossDomain:true,
+                dataType:'jsonp',
+                success:function(res){
+                    if(typeof(nickname)=="string"&&typeof(num)=="number"&&typeof(code)=="string"){
+                        $(location).prop('href', './登录.html');
+                    }else{
+                        alert("dataerror");
+                    }
+                }
+            })
+        })
+            
+     </script>
+</body>
+</html>

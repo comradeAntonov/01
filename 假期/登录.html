@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./注册登录.css" rel="stylesheet">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="frame">
+            <div class="title">
+                <div>2022新年愿望墙</div>
+            </div>
+            <div class="content">
+                <div class="input">
+                    <input placeholder="请输入手机号" id="cellphonenumber">
+                </div>
+            </div>
+            <div class="content">
+                <div class="input">
+                    <input placeholder="请输入密码" id="code">
+                </div>
+            </div>
+            <div class="login">
+                <button>登录</button>
+            </div>
+            </div>
+        </div>
+     </div>
+     <script>
+        var btn = document.getElementsByTagName("button");
+        var cellphonenumber = document.getElementById("cellphonenumber");
+        var code = document.getElementById("code");
+        $('button').click(function(){
+            $.ajax({
+                type:'POST',
+                url:'http://127.0.0.1/denglu',
+                crossDomain:true,
+                dataType:'jsonp',
+                success:function(res){
+                    if(typeof(cellphonenumber)=="number"&&typeof(code)=="string"){
+                        $(location).prop('href', './界面.html');
+                    }else{
+                        alert("dataerror");
+                    }
+                }
+            })
+        })
+     </script>
+</body>
+</html>
